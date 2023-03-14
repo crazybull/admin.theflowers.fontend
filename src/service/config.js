@@ -1,1 +1,4 @@
-export const baseURL="localhost"
+export const baseURL="http://127.0.0.1:3007/"
+export const timeout=5000
+export const method='POST'
+export const token='Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsInVzZXJuYW1lIjoiYWRtaW4iLCJwYXNzd29yZCI6IiIsInN0YXR1cyI6MCwibmlja25hbWUiOiJjcmF6eWJ1bGwiLCJlbWFpbCI6IjYyNjA2NjcwOEBxcS5jb20iLCJ1c2VyX3BpYyI6IiIsImlhdCI6MTY3ODgwNTE4MiwiZXhwIjoxNjc4ODQ4MzgyfQ.PqL5lHKlFEKx64imHpn6uPh52cPbz1xVwjqj9uI9XNQ'
