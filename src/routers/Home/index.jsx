@@ -1,6 +1,7 @@
 import { FileOutlined, PieChartOutlined, UserOutlined,DesktopOutlined,TeamOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import {authApi} from '@/service/webApi';
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
@@ -23,6 +24,13 @@ const items = [
 ];
 const Home = () => {
   const [collapsed, setCollapsed] = useState(false);
+  useEffect(()=>{
+    getAuth();
+  },[])
+  const getAuth=async ()=>{
+    const res=await authApi.getuserinfo();
+    
+  }
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -58,10 +66,21 @@ const Home = () => {
             style={{
               margin: '16px 0',
             }}
-          >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
+            items={[
+              {
+                title: 'Home',
+              },
+              {
+                title: <a href="">Application Center</a>,
+              },
+              {
+                title: <a href="">Application List</a>,
+              },
+              {
+                title: 'An Application',
+              },
+            ]}
+          />
           <div
             style={{
               padding: 24,

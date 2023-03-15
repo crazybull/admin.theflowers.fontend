@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {baseURL,timeout,method,token} from './config'
+import {baseURL,timeout,method,token,contentType} from './config'
 let instance = axios.create({
     method,
     baseURL,
@@ -13,8 +13,9 @@ let instance = axios.create({
  */
 instance.interceptors.request.use(function (config) {
     console.log(config);
-    let token=localStorage.getItem('token')||token
-    token && (config.headers.Authoriztion=token)
+    config.headers["Content-Type"]=contentType;
+    let tokenStr=localStorage.getItem('token')||token
+    token && (config.headers.Authorization=tokenStr)
     return config;
 }, function (error) {
     return Promise.reject(error);

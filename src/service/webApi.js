@@ -1,8 +1,10 @@
 import instance from './request'
 
-export const getuserinfo=(params)=>{
-    return instance({
-      url:'admin/userinfo',
-      params
-    })
+export const authApi={
+  login(params){
+    return instance({url:'api/login',data:params})
+  },
+  getuserinfo(params){
+    return instance({url:'admin/userinfo',data:params,method:'GET'})
+  }
 }
