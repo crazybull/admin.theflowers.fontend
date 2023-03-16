@@ -26,9 +26,7 @@ const items = [
 ];
 const Home = () => {
   const [collapsed, setCollapsed] = useState(false);
-  useEffect(()=>{
-    getAuth();
-  },[])
+  
   const getAuth=async ()=>{
     const res=await authApi.getuserinfo();
     
@@ -42,18 +40,18 @@ const Home = () => {
         minHeight: '100vh',
       }}
     >
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-        <div
-          style={{
-            height: 32,
-            margin: 16,
-            background: 'rgba(255, 255, 255, 0.2)',
-          }}
-        />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
-      </Sider>
-      <Layout className="site-layout">
-        <HeaderModule/>
+      <HeaderModule/>
+      <Layout>
+        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+          <div
+            style={{
+              height: 32,
+              margin: 16,
+              background: 'rgba(255, 255, 255, 0.2)',
+            }}
+          />
+          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        </Sider>
         <Content
           style={{
             margin: '0 16px',
@@ -88,13 +86,6 @@ const Home = () => {
             Bill is a cat.
           </div>
         </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-        >
-          Ant Design ©2023 Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
