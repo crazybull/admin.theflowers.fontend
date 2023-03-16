@@ -2,7 +2,9 @@ import { FileOutlined, PieChartOutlined, UserOutlined,DesktopOutlined,TeamOutlin
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { useState,useEffect } from 'react';
 import {authApi} from '@/service/webApi';
-const { Header, Content, Footer, Sider } = Layout;
+import HeaderModule from '@/components/Header';
+
+const { Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -51,12 +53,7 @@ const Home = () => {
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
       </Sider>
       <Layout className="site-layout">
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-          }}
-        />
+        <HeaderModule/>
         <Content
           style={{
             margin: '0 16px',
