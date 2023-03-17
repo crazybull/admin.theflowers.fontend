@@ -2,11 +2,8 @@ import React,{Suspense,Component,lazy,useState,useEffect} from 'react';
 import {HashRouter,Route,Routes} from 'react-router-dom';
 import Home from '@/routers/Home';
 import Login from '@/routers/Login';
-
+import {authApi} from '@/service/webApi';
 function App() {
-  useEffect(()=>{
-
-  },[])
   return (
     <HashRouter>
       <Routes>

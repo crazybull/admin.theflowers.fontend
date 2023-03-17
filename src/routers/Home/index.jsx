@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react';
 import {authApi} from '@/service/webApi';
 import HeaderModule from '@/components/Header';
 
-const { Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -26,10 +26,15 @@ const items = [
 ];
 const Home = () => {
   const [collapsed, setCollapsed] = useState(false);
-  
+  const [userInfo, setUserInfo] = useState({});
+  useEffect(()=>{
+    getAuth();
+  },[])
   const getAuth=async ()=>{
     const res=await authApi.getuserinfo();
-    
+    if(res.status===0&&res.data){
+      setUserInfo(res.data)
+    }
   }
   const {
     token: { colorBgContainer },
@@ -40,7 +45,7 @@ const Home = () => {
         minHeight: '100vh',
       }}
     >
-      <HeaderModule/>
+      <HeaderModule data={userInfo}/>
       <Layout>
         <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
           <div
