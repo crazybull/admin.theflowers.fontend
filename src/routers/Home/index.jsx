@@ -1,5 +1,5 @@
 import { FileOutlined, PieChartOutlined, UserOutlined,DesktopOutlined,TeamOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu } from 'antd';
 import { useState,useEffect } from 'react';
 import {authApi} from '@/service/webApi';
 import HeaderModule from '@/components/Header';
@@ -36,56 +36,54 @@ const Home = () => {
       setUserInfo(res.data)
     }
   }
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  
   return (
-    <Layout
-      style={{
-        minHeight: '100vh',
-      }}
-    >
-      <HeaderModule data={userInfo}/>
-      <Layout>
-        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-          <Menu defaultSelectedKeys={['1']} mode="inline" items={items} />
-        </Sider>
-        <Content
-          style={{
-            margin: '0 16px',
-          }}
-        >
-          <Breadcrumb
+      <Layout
+        style={{
+          minHeight: '100vh',
+        }}
+      >
+        <HeaderModule data={userInfo}/>
+        <Layout>
+          <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+            <Menu defaultSelectedKeys={['1']} mode="inline" items={items} />
+          </Sider>
+          <Content
             style={{
-              margin: '16px 0',
-            }}
-            items={[
-              {
-                title: 'Home',
-              },
-              {
-                title: <a href="">Application Center</a>,
-              },
-              {
-                title: <a href="">Application List</a>,
-              },
-              {
-                title: 'An Application',
-              },
-            ]}
-          />
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
+              margin: '0 16px',
             }}
           >
-            Bill is a cat.
-          </div>
-        </Content>
+            <Breadcrumb
+              style={{
+                margin: '16px 0',
+              }}
+              items={[
+                {
+                  title: 'Home',
+                },
+                {
+                  title: <a href="">Application Center</a>,
+                },
+                {
+                  title: <a href="">Application List</a>,
+                },
+                {
+                  title: 'An Application',
+                },
+              ]}
+            />
+            <div
+              style={{
+                padding: 24,
+                minHeight: 360,
+                background: '#fff',
+              }}
+            >
+              Bill is a cat.
+            </div>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
   );
 };
 export default Home;
