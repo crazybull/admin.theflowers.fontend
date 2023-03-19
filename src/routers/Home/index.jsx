@@ -48,14 +48,7 @@ const Home = () => {
       <HeaderModule data={userInfo}/>
       <Layout>
         <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-          <div
-            style={{
-              height: 32,
-              margin: 16,
-              background: 'rgba(255, 255, 255, 0.2)',
-            }}
-          />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+          <Menu defaultSelectedKeys={['1']} mode="inline" items={items} />
         </Sider>
         <Content
           style={{
