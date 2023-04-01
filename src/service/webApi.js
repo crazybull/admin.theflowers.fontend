@@ -8,3 +8,9 @@ export const authApi={
     return instance({url:'admin/userinfo',data:params,method:'GET'})
   }
 }
+
+export const user={
+  getUserList(params){
+    return instance({url:'admin/user/list',data:params})
+  }
+}
