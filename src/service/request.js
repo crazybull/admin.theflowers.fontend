@@ -29,6 +29,10 @@ instance.interceptors.request.use(function (config) {
  */
 
 instance.interceptors.response.use(function (response) {
+    console.log(response.data.status);
+    if(response?.data?.status=='403'){
+        document.location.href="./login"
+    }
     return response.data;
 }, function (error) {
     // 对响应错误做点什么

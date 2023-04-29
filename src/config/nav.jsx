@@ -1,4 +1,4 @@
-import {UserOutlined,SettingOutlined} from '@ant-design/icons';
+import {UserOutlined,SettingOutlined,ClusterOutlined} from '@ant-design/icons';
 import {Link} from 'react-router-dom';
 export const NavItems = [
     {
@@ -15,11 +15,14 @@ export const NavItems = [
     }]
 }, {
     key: "/home/article",
-    icon: <UserOutlined/>,
+    icon: <ClusterOutlined/>,
     label: "文章管理",
     children: [{
+        key: "/home/article_cate/list",
+        label: <Link to="/home/article_cate/list">文章类别</Link>
+    },{
         key: "/home/article/list",
-        label: <Link to="/home/article/list">成员管理</Link>
+        label: <Link to="/home/article/list">文章列表</Link>
     }]
 },{
     key: "/home/setting",
